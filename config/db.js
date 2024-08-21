@@ -12,8 +12,8 @@ const connectDB = async () => {
   //     console.error('MongoDB connection failed:', err.message);
   //     process.exit(1);
   // }
- await mongoose.connect("mongodb://127.0.0.1:27017/chat")
-    .then(() => console.log("Connected!"));
+ await mongoose.connect("mongodb+srv://jaydipsonanicloudus24:wKsbDX4QKQSNUiY7@socket-chat-db.neq5f.mongodb.net/?retryWrites=true&w=majority&appName=socket-chat-db/chat")
+    .then(() => console.log("mongodb connected!"));
 };
 
 module.exports = connectDB;
