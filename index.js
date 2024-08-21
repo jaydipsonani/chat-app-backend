@@ -1,35 +1,35 @@
-const express = require("express");
-const app = express();
-const http = require("http");
-const cors = require("cors");
-const { Server } = require("socket.io")
-app.use(cors());
-const server = http.createServer(app);
+const express = require('express');
+const http = require('http');
+const cors = require('cors');
+const { Server } = require('socket.io');
+const connectDB = require('./config/db');
+const chatHandler = require('./sockets/chatHandler');
 
+require('dotenv').config();
+
+const app = express();
+app.use(cors());
+app.use(express.json()); 
+
+connectDB();
+
+// Create HTTP server and wrap with Socket.io
+const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"]
-    }
-})
+        origin: "http://localhost:3000", 
+        methods: ["GET", "POST"],
+    },
+});
 
-io.on("connection", (socket) => {
-    console.log("socket id", socket.id)
+chatHandler(io);
 
-    socket.on("join_room", (data) => {
-        socket.join(data)
-        console.log(`User with Id: ${socket.id} User joined room id: ${data}`)
-    })
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
-    socket.on('send_message', (data) => {
-        socket.to(data.room).emit("receive-message",data)
-    })
+// server.listen(5000, () => {
+//     console.log("Server running on 5000");
+// });
 
-    socket.on("disconnect", () =>{
-        console.log("user disconnected", socket.id)
-    })
-})
-
-server.listen(5000, () => {
-    console.log("Server is running on port 5000");
-})
