@@ -5,7 +5,7 @@ const { Server } = require('socket.io');
 const connectDB = require('./config/db');
 const chatHandler = require('./sockets/chatHandler');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -24,12 +24,12 @@ const io = new Server(server, {
 
 chatHandler(io);
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
-
-// server.listen(5000, () => {
-//     console.log("Server running on 5000");
+// const PORT = process.env.PORT || 5000;
+// server.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
 // });
+
+server.listen(5000, () => {
+    console.log("Server running on 5000");
+});
 
