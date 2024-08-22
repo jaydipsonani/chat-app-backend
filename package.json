@@ -2,11 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
 
+  "scripts": {
+    "start": "MONGO_USER=jaydipsonanicloudus24 MONGO_PASSWORD=wKsbDX4QKQSNUiY7 MONGO_DEFAULT_DATABASE=mydatabase node index.js",
+    "start-server": "node index.js"
   },
+
   "author": "",
   "license": "ISC",
   "description": "",
@@ -19,3 +20,4 @@
     "socket.io": "^4.7.5"
   }
 }
+
