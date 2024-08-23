@@ -27,7 +27,7 @@ const chatHandler = (io) => {
 
             try {
                 await newMessage.save();
-                console.log('Message saved to DB:', data.message);
+                // console.log('Message saved to DB:', data.message);
             } catch (err) {
                 console.error('Error saving message to DB:', err);
             }
