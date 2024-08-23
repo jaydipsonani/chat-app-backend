@@ -16,7 +16,7 @@ connectDB();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://chat-app-fronted-seven.vercel.app/", 
+        origin: "https://chat-app-fronted-seven.vercel.app", 
         methods: ["GET", "POST"],
     },
 });
