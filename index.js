@@ -16,7 +16,7 @@ connectDB();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://chat-app-fronted-cyan.vercel.app", 
+        origin: "https://jaydip-chat-app.netlify.app", 
         methods: ["GET", "POST"],
     },
 });
