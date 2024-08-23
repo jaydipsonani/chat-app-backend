@@ -12,7 +12,7 @@ const connectDB = async () => {
   //     console.error('MongoDB connection failed:', err.message);
   //     process.exit(1);
   // }
- await mongoose.connect("mongodb+srv://jaydipsonanicloudus24:wKsbDX4QKQSNUiY7@socket-chat-db.neq5f.mongodb.net/?retryWrites=true&w=majority&appName=socket-chat-db/chat")
+ await mongoose.connect("mongodb+srv://jaydipsonanicloudus24:wKsbDX4QKQSNUiY7@socket-chat-db.neq5f.mongodb.net/?retryWrites=true&w=majority&appName=socket-chat-db/test")
     .then(() => console.log("mongodb connected!"));
 };
 
